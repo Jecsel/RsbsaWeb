@@ -1,0 +1,94 @@
+<app-main-header></app-main-header>
+<div class="container">
+    <div class="resource-overview">
+        <div class="well">
+            <div class="pad-header">
+                <span class="header-span">Resource Overview</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title>Farms</mat-card-title>
+                            <mat-card-subtitle>2 farms</mat-card-subtitle>
+                        </mat-card-header>
+                        <div class="d-flex justify-content-center">
+                            <img class="resource-img" mat-card-avatar src="../../../assets/images/farm.png" alt="">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <mat-card-actions>
+                                <button mat-raised-button color="accent"><mat-icon>add</mat-icon>Add Farms</button>
+                            </mat-card-actions>
+                        </div>
+                      </mat-card>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title>Farmers</mat-card-title>
+                            <mat-card-subtitle>103 farmers</mat-card-subtitle>
+                        </mat-card-header>
+                        <div class="d-flex justify-content-center">
+                            <img class="resource-img" mat-card-avatar src="../../../assets/images/farmer.png" alt="">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <mat-card-actions>
+                                <button mat-raised-button color="accent"><mat-icon>add</mat-icon>Add Farmers</button>
+                            </mat-card-actions>
+                        </div>
+                      </mat-card>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title>Parcel</mat-card-title>
+                            <mat-card-subtitle>23 parcels</mat-card-subtitle>
+                        </mat-card-header>
+                        <div class="d-flex justify-content-center">
+                            <img class="resource-img" mat-card-avatar src="../../../assets/images/document.png" alt="">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <mat-card-actions>
+                                <button mat-raised-button color="accent"><mat-icon>add</mat-icon>Add Parcel</button>
+                            </mat-card-actions>
+                        </div>
+                      </mat-card>
+                </div>
+            </div>
+        </div>
+        <div class="well">
+            <div class="pad-header">
+                <span class="header-span">Farms</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                          <mat-card-title>Caliraya Farm</mat-card-title>
+                          <mat-card-subtitle>Caliraya, Laguna</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../../assets/images/caliraya.jpg" style="height:130px" alt="">
+                        <mat-card-actions>
+                          <button mat-button (click)="selectFarm()">SELECT</button>
+                        </mat-card-actions>
+                      </mat-card>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                          <mat-card-title>RSBSA Farm</mat-card-title>
+                          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="../../../assets/images/ilocos_sur.png" style="height: 130px;" alt="">
+                        <mat-card-actions>
+                          <button mat-button (click)="selectFarm()">SELECT</button>
+                        </mat-card-actions>
+                      </mat-card>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

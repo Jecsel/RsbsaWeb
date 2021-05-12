@@ -1,0 +1,44 @@
+@import '../../../styles/global.scss';
+
+table{
+    width: 100%;
+}
+.filter-container{
+    border: solid 2px #f2f2f2;
+    border-radius: 5px;
+    color: white;
+    background: #5fc21e;
+    min-height: 20px;
+    padding: 5px 20px;
+    margin: 10px 0px;
+    .header-span{
+        color: white;
+        font-size: 18px;
+    }
+}
+mat-card{
+    margin:5px;
+    padding: 0px;
+    .dashboard-card{
+        min-height: 150px;
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold   ;
+        .card-header{
+            background-color: $global-green;
+            min-height: 80px;
+            .card-icon{
+                font-size: 40px;
+            }
+        }
+        .card-content{
+            min-height: 70px;
+            color: gray;
+        }   
+    }
+}
+
+.mat-stroked-button:not(.mat-button-disabled) {
+    border-color: #ff4081;
+}

@@ -1,0 +1,19 @@
+$global-green : #5fc21e;
+.container{
+    padding: 0px 75px;
+    max-width: inherit;
+}
+.well {
+    border: solid 2px #f2f2f2;
+    border-radius: 5px;
+    background: #fafafa;
+    min-height: 20px;
+    padding:20px;
+    margin: 10px 0px;
+}
+.header-span{
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: left;
+    color: #5fc21e;
+}
