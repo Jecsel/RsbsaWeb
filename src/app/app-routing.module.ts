@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { DashboardComponent } from './components/farm-juan/dashboard/dashboard.component';
+import { DashboardComponent } from './components/farm-juan/home/dashboard/dashboard.component';
+import { FarmerComponent } from './components/farm-juan/home/farmer/farmer.component';
 import { HomeComponent } from './components/farm-juan/home/home.component';
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent},
-  { path: 'dashboard', component: DashboardComponent}
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'farmer', component: FarmerComponent}
 ];
 
 @NgModule({

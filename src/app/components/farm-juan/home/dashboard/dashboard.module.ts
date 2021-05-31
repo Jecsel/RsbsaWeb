@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MainHeaderModule } from '../../main-header/main-header.module';
 
 
 
@@ -7,6 +8,7 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule,
+    MainHeaderModule
   ]
 })
 export class DashboardModule { }

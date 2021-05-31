@@ -1,13 +1,16 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatDialog } from '@angular/material/dialog';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api-service/api-service.service';
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
 }
+
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -31,17 +34,41 @@ export class DashboardComponent implements AfterViewInit {
   panelOpenState = false;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-
+  error_message = '';
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor() { }
-  
+  constructor(
+    public dialog: MatDialog,
+    private apiService: ApiService,
+    private router: Router) { }
   ngAfterViewInit(): void {
+    this.apiService
+      .getAllFarmers({page:1})
+      .subscribe(res => {
+        console.log(res);
+      }, err => {
+        this.error_message = err.error;
+      });
     this.dataSource.sort = this.sort;
   }
 
-  ngOnInit(): void {
+  addFarmer(): void {
+    this.router.navigate(['farmer']);
   }
 
+  openDialog(): void {
+    this.dialog.open(FilterDialogComponent);
+  }
+
+}
+
+@Component({
+  selector: 'app-filter-dialog',
+  templateUrl: './filter-dialog.component.html',
+})
+export class FilterDialogComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
+  }
 }

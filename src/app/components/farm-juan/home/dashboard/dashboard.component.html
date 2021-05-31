@@ -51,11 +51,11 @@
             </mat-accordion>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-12">
-            <!-- <div class="filter-container">
-                <div class="pad-header">
-                    <span class="header-span">Filter</span>
-                </div>
-            </div> -->
+            <div class="d-flex justify-content-end">
+                <mat-card-actions>
+                    <button mat-raised-button color="accent" (click)="addFarmer()"><mat-icon>add</mat-icon>Add Farmers</button>
+                </mat-card-actions>
+            </div>
             <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
                 <ng-container matColumnDef="position">
                   <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
@@ -77,8 +77,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
               <div class="well">
-                <div class="d-flex justify-content-start">
-                    <button mat-stroked-button color="accent"><mat-icon>filter_list</mat-icon>Filter</button>
+                <div class="d-flex justify-content-start px-2">
+                    <button mat-stroked-button color="accent" (click)="openDialog()"><mat-icon>filter_list</mat-icon>Filter</button>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12">
@@ -87,6 +87,7 @@
                                 <div class="card-header">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex justify-content-center"><span class="material-icons card-icon"> person</span></div>
+                                        <div class="d-flex justify-content-center">TOTAL</div>
                                         <div class="d-flex justify-content-center">FARM LAND</div>
                                     </div>
                                 </div>
@@ -104,7 +105,8 @@
                                 <div class="card-header">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex justify-content-center"><span class="material-icons card-icon"> person</span></div>
-                                        <div class="d-flex justify-content-center">Total Farmers</div>
+                                        <div class="d-flex justify-content-center">TOTAL</div>
+                                        <div class="d-flex justify-content-center">FARMERS</div>
                                     </div>
                                 </div>
                                 <div class="card-content">
@@ -121,7 +123,8 @@
                                 <div class="card-header">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex justify-content-center"><span class="material-icons card-icon"> person</span></div>
-                                        <div class="d-flex justify-content-center">Total LABORERS</div>
+                                        <div class="d-flex justify-content-center">TOTAL</div>
+                                        <div class="d-flex justify-content-center">LABORERS</div>
                                     </div>
                                 </div>
                                 <div class="card-content">
@@ -138,7 +141,8 @@
                                 <div class="card-header">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex justify-content-center"><span class="material-icons card-icon"> person</span></div>
-                                        <div class="d-flex justify-content-center">Total FISHERFOLKS</div>
+                                        <div class="d-flex justify-content-center">TOTAL</div>
+                                        <div class="d-flex justify-content-center">FISHERFOLKS</div>
                                     </div>
                                 </div>
                                 <div class="card-content">

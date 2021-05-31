@@ -32,10 +32,13 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { DashboardComponent } from './farm-juan/dashboard/dashboard.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { DashboardComponent } from './farm-juan/home/dashboard/dashboard.component';
 import { AppComponent } from '../app.component';
 import { MainHeaderComponent } from './farm-juan/main-header/main-header.component';
 import { HomeComponent } from './farm-juan/home/home.component';
+import { FarmerComponent } from './farm-juan/home/farmer/farmer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const materialModules = [
   CdkTreeModule,
@@ -69,7 +72,9 @@ const materialModules = [
   MatGridListModule,
   MatRadioModule,
   MatDatepickerModule,
-  MatTooltipModule
+  MatTooltipModule, 
+  MatStepperModule,
+  ReactiveFormsModule
 ];
 
 @NgModule({
@@ -82,6 +87,7 @@ const materialModules = [
   ],
   declarations: [
     DashboardComponent,
+    FarmerComponent,
     MainHeaderComponent,
     HomeComponent
   ],
