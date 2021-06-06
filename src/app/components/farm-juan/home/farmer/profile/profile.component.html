@@ -1,1 +1,203 @@
-<p>profile works!</p>
+<div class="container">
+    <mat-horizontal-stepper #stepper>
+        <mat-step [stepControl]="profileFormGroup" errorMessage="Field is required!">
+          <form [formGroup]="profileFormGroup">
+            <ng-template matStepLabel>Personal Details</ng-template>
+            <mat-grid-list cols="3" rowHeight="1:1">
+              <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last name" formControlName="last_name" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="Last name" formControlName="first_name" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Middle Name</mat-label>
+                <input matInput placeholder="Last name" formControlName="middle_name" required>
+              </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>Extension Name</mat-label>
+                <input matInput placeholder="Extension name" formControlName="extension_name" required>
+              </mat-form-field>
+              <mat-form-field *ngIf="farmData">
+                <mat-label>Sex</mat-label>
+                <input matInput formControlName="gender" required>
+                <!-- <input matInput formControlName="gender" [formControl]="profileControl" [matAutocomplete]="auto" required>
+                <mat-autocomplete  autoActiveFirstOption #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of farmData.genders" [value]="option.name">
+                    {{option.name}}
+                  </mat-option>
+                </mat-autocomplete> -->
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Upload Photo</mat-label>
+                <input matInput formControlName="photo" required>
+              </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>House/Lot/Bldg. No</mat-label>
+                <input matInput formControlName="house" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Street/Sitio/Subdv.</mat-label>
+                <input matInput formControlName="street" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Barangay</mat-label>
+                <input matInput formControlName="brgy" required>
+              </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>Region</mat-label>
+                <input matInput formControlName="region" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Province</mat-label>
+                <input matInput formControlName="province" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Municipality</mat-label>
+                <input matInput formControlName="municipality" required>
+              </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>Contact Number</mat-label>
+                <input matInput formControlName="user_contact_number" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput formControlName="dob" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Place of Birth</mat-label>
+                <input matInput formControlName="place_of_birth" required>
+              </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>Religion</mat-label>
+                <input matInput formControlName="religion" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Civil Status</mat-label>
+                <input matInput formControlName="civil_status" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Name of Spouse (If Married)</mat-label>
+                <input matInput formControlName="spouse_name" required>
+              </mat-form-field>
+            </mat-grid-list>
+
+            <mat-grid-list cols="1" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>MOTHER'S MAIDEN NAME</mat-label>
+                <input matInput formControlName="mother_name" required>
+              </mat-form-field>
+            </mat-grid-list>
+
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="otherFormGroup" errorMessage="Field is Required">
+          <form [formGroup]="otherFormGroup">
+            <ng-template matStepLabel>Almost there</ng-template>
+            <mat-grid-list cols="2" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>Highest Form Of Education</mat-label>
+                <input matInput formControlName="education_attaintments" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Person to notify in case of emergency</mat-label>
+                <input matInput formControlName="person_to_notify" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Contact Number</mat-label>
+                <input maxlength="11" matInput formControlName="emergency_person_number" required>
+              </mat-form-field>
+            </mat-grid-list>
+            <mat-grid-list cols="1" rowHeight="2:1">
+                <mat-checkbox class="pl-3" formControlName="household_head">Household Head</mat-checkbox>
+            </mat-grid-list>
+
+            <mat-grid-list cols="2" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>If No, Name of Household Head</mat-label>
+                <input matInput formControlName="household_name">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Relationship</mat-label>
+                <input matInput formControlName="household_head_relationship">
+              </mat-form-field>
+            </mat-grid-list>
+            <mat-grid-list cols="3" rowHeight="2:1">
+              <mat-form-field>
+                <mat-label>No. Of Living Household Members</mat-label>
+                <input matInput formControlName="numbers_household_member">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>No. Of Male</mat-label>
+                <input matInput formControlName="numbers_of_male">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>No. Of Female</mat-label>
+                <input matInput formControlName="numbers_of_female">
+              </mat-form-field>
+            </mat-grid-list>
+            <mat-grid-list cols="1">
+              <div class="row">
+                <div class="col-6 ml15">
+                  <mat-checkbox formControlName="person_with_disability">Person With Disability (PWD)</mat-checkbox>
+                </div>
+
+                <div class="col-6 ml15">
+                  <mat-checkbox formControlName="four_p_beneficiary">4P'S BENEFICIARY</mat-checkbox>
+                </div>
+                <div class="col-6">
+                  <mat-form-field class="mr-2">
+                    <mat-checkbox formControlName="member_of_association">Member Of Any Farmers Association</mat-checkbox>
+                    <div>
+                      <mat-label>If Yes, Please Specify ID Number</mat-label>
+                      <input matInput formControlName="member_no_of_association">
+                    </div>
+                  </mat-form-field>
+                </div>
+                <div class="col-6">
+                  <mat-form-field>
+                    <mat-checkbox formControlName="member_of_indigenous_group">Member of a Indigenous Group</mat-checkbox>
+                    <div>
+                      <mat-label>If Yes, Please Specify ID Number</mat-label>
+                      <input matInput formControlName="member_no_of_indigenous_group">
+                    </div>
+                  </mat-form-field>
+                </div>
+              </div>
+            </mat-grid-list>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button color="accent" class="btn-block" (click)="submitProfile()">Submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+</div>

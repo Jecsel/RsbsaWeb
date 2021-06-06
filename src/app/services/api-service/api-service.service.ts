@@ -14,33 +14,41 @@ export class ApiService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Accept': '*/*',
-      "Content-Type": "application/json",
+      Accept: '*/*',
+      'Content-Type': 'application/json'
     }),
   };
 
-  //----------- GET REQUEST -----------
-  // getAllFarmers(): Observable<void> {
-  //   return this.httpClient.get(this.baseUrl + 'v1/dashboard')
-  //   .pipe(map((response: any) => {
-  //       return response;
-  //     }));
-  // }
-
-  //----------- POST REQUEST -------------
-  getAllFarmers(model: any): Observable<void>{
-    return this.httpClient.post(this.baseUrl + 'v1/dashboard/list', model, this.httpOptions)
+  // ----------- GET REQUEST -------------//
+  getInitData(): Observable<any>{
+    return this.httpClient.get(this.baseUrl + 'v1/enrollment', this.httpOptions)
       .pipe(map((response: any) => {
         return response;
       }));
   }
 
+  // ----------- POST REQUEST -------------//
+  postProfile(model: any): Observable<void>{
+    return this.httpClient.post(this.baseUrl + 'v1/enrollment', model)
+      .pipe(map((response: any) => {
+        console.log(response);
+        return response;
+      }));
+  }
+
+  getAllFarmers(model: any): Observable<void>{
+    return this.httpClient.post(this.baseUrl + 'v1/dashboard/list', model)
+      .pipe(map((response: any) => {
+        return response;
+      }));
+  }
+  
   login(model: any): Observable<void>{
     return this.httpClient.post(this.baseUrl + 'v1/user/sign_in', model)
       .pipe(map((response: any) => {
         const user = response;
         if (user) {
-          localStorage.setItem('token', user.token)
+          localStorage.setItem('token', user.token);
         }
         return;
       }));

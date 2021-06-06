@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   error_message: any;
 
-  constructor( private router: Router, private apiSevice: ApiService) {
+  constructor( private router: Router, private apiService: ApiService) {
     this.form = new FormGroup({
       username: new FormControl('', [
         Validators.required,
@@ -31,11 +31,11 @@ export class LoginComponent implements OnInit {
 
   submitLogin(): void {
     this.data.credential = this.form.value;
-    console.log(this.data);
-    this.apiSevice.login(this.data).subscribe(next => {
+    this.apiService.login(this.data).subscribe(next => {
       this.router.navigate(['home']);
     }, err => {
       this.error_message = err.error;
+      alert(this.error_message);
     });
 
   }

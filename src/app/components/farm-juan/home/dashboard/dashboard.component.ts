@@ -4,27 +4,27 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api-service/api-service.service';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface UserModel {
+  brgy: string;
+  dob: string;
+  farm_address: string;
+  first_name: string;
+  gender: string;
+  house: string;
+  id: number;
+  last_name: string;
+  lot_no: string;
+  middle_name: string;
+  municipality: string;
+  province: string;
+  ref_number: string;
+  region: string;
+  street: string;
+  ten_status: string;
+  total_farm_area: string;
+  user_contact_number: string;
+  user_id: number;
 }
-
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -32,9 +32,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class DashboardComponent implements AfterViewInit {
   panelOpenState = false;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  error_message = '';
+  displayedColumns: string[] = [
+    'refNo', 'lastName', 'firstName', 'municipality',
+    'province', 'lotNo', 'farmAddress', 'tenStatus', 'noHas'
+  ];
+  userData: any = [];
+  data: any = [];
+  dataSource = new MatTableDataSource();
+  errorMessage = '';
   @ViewChild(MatSort)
   sort!: MatSort;
 
@@ -44,11 +49,14 @@ export class DashboardComponent implements AfterViewInit {
     private router: Router) { }
   ngAfterViewInit(): void {
     this.apiService
-      .getAllFarmers({page:1})
+      .getAllFarmers({page: 1})
       .subscribe(res => {
-        console.log(res);
+        this.data.push(res);
+        console.log(this.data);
+        this.userData.push(this.data[0].profiles);
+        this.dataSource = new MatTableDataSource(this.userData);
       }, err => {
-        this.error_message = err.error;
+        this.errorMessage = err.error;
       });
     this.dataSource.sort = this.sort;
   }

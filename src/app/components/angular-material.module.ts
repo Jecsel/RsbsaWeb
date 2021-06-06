@@ -39,6 +39,7 @@ import { MainHeaderComponent } from './farm-juan/main-header/main-header.compone
 import { HomeComponent } from './farm-juan/home/home.component';
 import { FarmerComponent } from './farm-juan/home/farmer/farmer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './farm-juan/home/farmer/profile/profile.component';
 
 const materialModules = [
   CdkTreeModule,
@@ -89,7 +90,8 @@ const materialModules = [
     DashboardComponent,
     FarmerComponent,
     MainHeaderComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
   ],
   bootstrap: [AppComponent]
 })
