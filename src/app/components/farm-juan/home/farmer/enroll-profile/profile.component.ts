@@ -21,47 +21,10 @@ export class ProfileComponent implements OnInit {
   farmData: any;
   filteredOptions: Observable<string[]>;
   data: any;
-  dataProfile: any;
-  dataOther: any;
-  mockData = {
-        last_name: 'Durant',
-        first_name: 'Jec',
-        middle_name: 'Galicia',
-        extension_name: 'Jr',
-        gender: 1,
-        province: 1,
-        region: 1,
-        municipality: 1,
-        house: 'RM P 823',
-        street: 'Rizal St',
-        brgy: 'Santa Fe',
-        user_contact_number: '09384170763',
-        dob: '1995-04-19 13:05:32',
-        religion: 'Catholic',
-        civil_status: 1,
-        spouse_name: 'Abby',
-        mother_name: 'Marie',
-        household_head: false,
-        household_name: 'Ron',
-        household_head_relationship: 'Father',
-        numbers_household_member: '10',
-        numbers_of_male: '6',
-        numbers_of_female: '4',
-        person_with_disability: true,
-        four_p_beneficiary: true,
-        with_government_id: true,
-        agrarian: true,
-        government_number: 'GVR-1234',
-        member_of_association: true,
-        association_number: 'AS - 0011',
-        member_of_indigenous_group: true,
-        indigenous_group_number: 'IND-9378',
-        person_to_notify: 'Abe',
-        emergency_person_number: '0987823423',
-        education_attaintments: 1
-};
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService) { }
 
+  farmerProfile: any;
+  farmerID: string | null;
+  constructor(private formBuilder: FormBuilder, private apiService: ApiService) { }
 
   async ngOnInit(): Promise<void> {
     this.declareFormBuilder();
@@ -78,8 +41,8 @@ export class ProfileComponent implements OnInit {
 
   declareFormBuilder(): void{
     this.profileFormGroup = this.formBuilder.group({
-      last_name: ['Tinao', Validators.required],
-      first_name: ['Jecsel', Validators.required],
+      last_name: ['Sumabat', Validators.required],
+      first_name: ['Kit', Validators.required],
       middle_name: ['Galicia', Validators.required],
       extension_name: ['Jr', Validators.required],
       gender: [1, Validators.required],
@@ -121,13 +84,10 @@ export class ProfileComponent implements OnInit {
 
   submitProfile(): void {
     this.data = {enrollment: {...this.profileFormGroup.value, ...this.otherFormGroup.value}};
-    console.log(this.data);
     this.apiService.postProfile(this.data).subscribe(res => {
-      console.log(res);
     }, err => {
       alert(err.error);
     });
-
   }
 
   getInitData(): void{
@@ -138,12 +98,22 @@ export class ProfileComponent implements OnInit {
       }, error  => {
         alert(error.data.message);
       });
+    
+      this.farmerID = localStorage.getItem("farmerID");
+      this.apiService
+        .getFarmerProfile(this.farmerID)
+        .subscribe((res: any) => {
+          this.farmerProfile = res;
+        }, (err: any) => {
+          console.log(err);
+          alert(err);
+        });
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.farmData
       .filter((option: any) => option.toLowerCase().includes(filterValue));
-  } 
+  }
 
 }

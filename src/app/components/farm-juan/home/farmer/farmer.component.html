@@ -1,2 +1,43 @@
 <app-main-header></app-main-header>
-<app-profile></app-profile>
+<div *ngIf="!hasProfile">
+  <app-profile></app-profile>
+</div>
+<div *ngIf="hasProfile">
+  <div class="farm-container">
+    <div class="row">
+      <div class="col-4">
+        <div class="card">
+          <div class="farm-wallpaper">
+            <div class="d-flex justify-content-center pt-3">
+              <img src="../../../../../assets/images/kit.jpg" class="rounded-circle" alt="Cinque Terre" width="150" height="150">
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="left-panel">
+              <div class="center">
+                <mat-label>{{data.profile.first_name}} {{data.profile.last_name}}</mat-label>
+              </div>
+              <div class="center">
+                <mat-label>{{data.profile.municipality}}, {{data.profile.province}}</mat-label>
+              </div>
+              <div class="center">
+                <mat-label><b>{{data.profile.ref_number}}</b></mat-label>
+              </div>
+            </div>
+          </div>
+          <mat-button-toggle-group class="toggle-menu" [formControl]="toggleMenuControl" name="menu" aria-label="Font Style" vertical>
+            <mat-button-toggle value="profile">Profile</mat-button-toggle><br>
+            <mat-button-toggle value="livelihood">Livelihood</mat-button-toggle><br>
+            <mat-button-toggle value="parcel">Parcel</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="col-8">
+        <div *ngIf="this.toggleMenuControl.value === 'profile'">
+          <!-- <app-data-profile></app-data-profile> -->
+          <app-profile></app-profile>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

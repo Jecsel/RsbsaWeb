@@ -26,12 +26,19 @@ export class ApiService {
         return response;
       }));
   }
+  getFarmerProfile(id: any): Observable<void>{
+    return this.httpClient.get(this.baseUrl + 'v1/enrollment/' + id)
+      .pipe(map((response: any) => {
+        localStorage.setItem('farmerProfile', response);
+        return response;
+      }));
+  }
 
   // ----------- POST REQUEST -------------//
   postProfile(model: any): Observable<void>{
     return this.httpClient.post(this.baseUrl + 'v1/enrollment', model)
       .pipe(map((response: any) => {
-        console.log(response);
+        localStorage.setItem('farmerID', response.profile_id);
         return response;
       }));
   }
@@ -42,7 +49,6 @@ export class ApiService {
         return response;
       }));
   }
-  
   login(model: any): Observable<void>{
     return this.httpClient.post(this.baseUrl + 'v1/user/sign_in', model)
       .pipe(map((response: any) => {

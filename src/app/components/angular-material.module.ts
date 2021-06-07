@@ -39,7 +39,8 @@ import { MainHeaderComponent } from './farm-juan/main-header/main-header.compone
 import { HomeComponent } from './farm-juan/home/home.component';
 import { FarmerComponent } from './farm-juan/home/farmer/farmer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ProfileComponent } from './farm-juan/home/farmer/profile/profile.component';
+import { ProfileComponent } from './farm-juan/home/farmer/enroll-profile/profile.component';
+import { DataProfileComponent } from './farm-juan/home/farmer/data-profile/data-profile.component';
 
 const materialModules = [
   CdkTreeModule,
@@ -92,6 +93,7 @@ const materialModules = [
     MainHeaderComponent,
     HomeComponent,
     ProfileComponent,
+    DataProfileComponent
   ],
   bootstrap: [AppComponent]
 })

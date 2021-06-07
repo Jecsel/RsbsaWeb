@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-horizontal-stepper #stepper>
+    <mat-horizontal-stepper class="profile-container" #stepper>
         <mat-step [stepControl]="profileFormGroup" errorMessage="Field is required!">
           <form [formGroup]="profileFormGroup">
             <ng-template matStepLabel>Personal Details</ng-template>
@@ -162,25 +162,21 @@
                   <mat-checkbox formControlName="person_with_disability">Person With Disability (PWD)</mat-checkbox>
                 </div>
 
-                <div class="col-6 ml15">
+                <div class="col-6">
                   <mat-checkbox formControlName="four_p_beneficiary">4P'S BENEFICIARY</mat-checkbox>
                 </div>
-                <div class="col-6">
+                <div class="col-6  ml15">
+                  <mat-checkbox formControlName="member_of_association">Member Of Any Farmers Association</mat-checkbox>
                   <mat-form-field class="mr-2">
-                    <mat-checkbox formControlName="member_of_association">Member Of Any Farmers Association</mat-checkbox>
-                    <div>
-                      <mat-label>If Yes, Please Specify ID Number</mat-label>
-                      <input matInput formControlName="member_no_of_association">
-                    </div>
+                  <mat-label>If Yes, Please Specify ID Number</mat-label>
+                  <input matInput formControlName="member_no_of_association">
                   </mat-form-field>
                 </div>
                 <div class="col-6">
+                  <mat-checkbox formControlName="member_of_indigenous_group">Member of a Indigenous Group</mat-checkbox>
                   <mat-form-field>
-                    <mat-checkbox formControlName="member_of_indigenous_group">Member of a Indigenous Group</mat-checkbox>
-                    <div>
-                      <mat-label>If Yes, Please Specify ID Number</mat-label>
-                      <input matInput formControlName="member_no_of_indigenous_group">
-                    </div>
+                    <mat-label>If Yes, Please Specify ID Number</mat-label>
+                    <input matInput formControlName="member_no_of_indigenous_group">
                   </mat-form-field>
                 </div>
               </div>
@@ -196,7 +192,10 @@
           <p>You are now done.</p>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button color="accent" class="btn-block" (click)="submitProfile()">Submit</button>
+            <button 
+              mat-button color="accent"
+              class="btn-block wAuto" 
+              (click)="submitProfile()">Submit</button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
