@@ -34,8 +34,13 @@
       </div>
       <div class="col-8">
         <div *ngIf="this.toggleMenuControl.value === 'profile'">
-          <!-- <app-data-profile></app-data-profile> -->
           <app-profile></app-profile>
+        </div>
+        <div *ngIf="this.toggleMenuControl.value === 'livelihood'">
+          <app-enroll-livelihood></app-enroll-livelihood>
+        </div>
+        <div *ngIf="this.toggleMenuControl.value === 'parcel'">
+          <app-enroll-parcel></app-enroll-parcel>
         </div>
       </div>
     </div>

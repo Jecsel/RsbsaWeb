@@ -34,11 +34,26 @@ export class ApiService {
       }));
   }
 
+  getLivelihood(): Observable<void>{
+    return this.httpClient.get(this.baseUrl + 'v1/enrollment/get_main_livelihood')
+      .pipe(map((response: any) => {
+        localStorage.setItem('livelihood_data', response.toString());
+        return response;
+      }));
+  }
+
   // ----------- POST REQUEST -------------//
   postProfile(model: any): Observable<void>{
     return this.httpClient.post(this.baseUrl + 'v1/enrollment', model)
       .pipe(map((response: any) => {
-        localStorage.setItem('farmerID', response.profile_id);
+        localStorage.setItem('profileID', response.profile_id);
+        return response;
+      }));
+  }
+
+  postLivelihood(model: any): Observable<void>{
+    return this.httpClient.post(this.baseUrl + 'v1/enrollment/create_livelihoods', model)
+      .pipe(map((response: any) => {
         return response;
       }));
   }

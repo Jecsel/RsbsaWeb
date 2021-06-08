@@ -105,8 +105,8 @@ export class ProfileComponent implements OnInit {
         .subscribe((res: any) => {
           this.farmerProfile = res;
         }, (err: any) => {
-          console.log(err);
-          alert(err);
+          console.log(err.message);
+          alert(err.message);
         });
   }
 

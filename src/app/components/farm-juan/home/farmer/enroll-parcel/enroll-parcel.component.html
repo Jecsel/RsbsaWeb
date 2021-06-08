@@ -1,0 +1,144 @@
+<div class="container">
+    <div class="livelihood-container">
+        <div class="p-5">
+            <form [formGroup]="livelihoodFormGroup">
+                <mat-label><b>MAIN LIVELIHOOD</b></mat-label>
+                <div class="break-line"></div>
+                <div class="row">
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>OWNERSHIP DOCUMENT NO.</mat-label>
+                            <input matInput formControlName="farmer" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>CHOOSE FILE</mat-label>
+                            <input matInput formControlName="farmer" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>MUNICIPALITY</mat-label>
+                            <input matInput formControlName="farmer" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>BARANGAY</mat-label>
+                            <input matInput formControlName="farmer" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>LOT NO</mat-label>
+                            <input matInput formControlName="farmer" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-4">
+                        <mat-form-field>
+                            <mat-label>TOTAL FARM AREA</mat-label>
+                            <input matInput formControlName="farmer" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="break-line"></div>
+                <mat-label>FARM LAND DESCRIPTION</mat-label>
+                <div class="description-container">
+                    <mat-checkbox class="ml-3" formControlName="farmer">REGISTERED OWNER</mat-checkbox>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">OTHERS</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">TENANT</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Name of Land Owner</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">LESSEE</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Name of Lessee</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="break-line"></div>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">CROP COMMODITY</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">FOR LIVESTOCK/POULTRY</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Specify head count</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">FARM AREA (HA)</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">OTHERS</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">TENANT</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer">LESSEE</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <mat-card-actions class="d-flex justify-content-center pt-3">
+                    <div class="d-flex flex-column">
+                        <button class="mb-1" mat-raised-button color="accent">Add Farm Land Description</button>
+                        <button mat-raised-button color="primary">Save</button>
+                    </div>
+                </mat-card-actions>
+            </form>
+        </div>
+    </div>
+</div>

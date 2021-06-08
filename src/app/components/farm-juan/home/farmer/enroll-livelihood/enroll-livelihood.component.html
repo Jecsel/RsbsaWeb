@@ -1,0 +1,139 @@
+<div class="container">
+    <div class="livelihood-container">
+        <div class="p-5">
+            <form [formGroup]="livelihoodFormGroup">
+                <mat-label>MAIN LIVELIHOOD</mat-label>
+                <div class="break-line"></div>
+                <mat-checkbox class="" formControlName="farmer">FARMERS</mat-checkbox>
+                <div class="break-line"></div>
+                <div *ngIf='livelihoodFormGroup.value.farmer'>
+                    <mat-label>TYPE OF FARMING ACTIVITY</mat-label>
+                    <div class="row">
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="farmer_rice">RICE</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="farmer_corn">CORN</mat-checkbox>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer_other_crops">OTHER CROPS</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer_other_crops_spec">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer_livestock">LIVESTOCK</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer_livestock_spec">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmer_poultry">POULTRY</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmer_poultry_spec">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="break-line"></div>
+                <mat-checkbox class="" formControlName="farmworker">FARMWORKER / LABORER </mat-checkbox>
+                <div class="break-line"></div>
+                <div *ngIf='livelihoodFormGroup.value.farmworker'>
+                    <mat-label>TYPE OF WORK</mat-label>
+                    <div class="row">
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="farmworker_land">LAND PREPARATION</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="farmworker_planting">PLANTING/TRANSPLANTING</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="farmworker_cultivation">CULTIVATION</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="farmworker_harvesting">HARVESTING</mat-checkbox>
+                        </div>             
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="farmworker_other">OTHER, PLEASE SPECIFY</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="farmworker_other_spec">
+                                </mat-form-field>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="break-line"></div>
+                <mat-checkbox class="" formControlName="fisherfolk">FISHERFOLK</mat-checkbox>
+                <div class="break-line"></div>
+                <div *ngIf='livelihoodFormGroup.value.fisherfolk'>
+                    <mat-label>TYPE OF FISHING ACTIVITY</mat-label>
+                    <div class="row">
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="fisherfolk">FISH CAPTURE</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="fisherfolk_capture">AQUACULTURE</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="fisherfolk_aquaculture">GLEANING</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="fisherfolk_gleaning">FISH PROCESSING</mat-checkbox>
+                        </div>
+                        <div class="col-4">
+                            <mat-checkbox class="pl-3" formControlName="fisherfolk_processing">FISH VENDING</mat-checkbox>
+                        </div>             
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="d-flex flex-column">
+                                <mat-checkbox class="pl-3" formControlName="fisherfolk_vending">OTHER, PLEASE SPECIFY</mat-checkbox>
+                                <mat-form-field class="ml-3">
+                                    <mat-label>Please Specify</mat-label>
+                                    <input matInput formControlName="fisherfolk_vending_spec">
+                                </mat-form-field>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <mat-label>GROSS ANNUAL INCOME</mat-label>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <mat-form-field>
+                                <mat-label>FARMING</mat-label>
+                                <input matInput formControlName="farming" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex flex-column">
+                            <mat-form-field>
+                                <mat-label>NON FARMING</mat-label>
+                                <input matInput formControlName="non_farming" required>
+                            </mat-form-field>
+                        </div>
+                    </div>  
+                </div>
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" (click)="saveLivelihood()">Save</button>
+                </mat-card-actions>
+            </form>
+        </div>
+    </div>
+</div>

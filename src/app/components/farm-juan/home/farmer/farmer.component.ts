@@ -30,13 +30,12 @@ export class FarmerComponent implements OnInit {
 
   getInitData(): void {
     this.toggleMenuControl.setValue('profile');
-    this.farmerID = localStorage.getItem("farmerID");
+    this.farmerID = localStorage.getItem("profileID");
     this.apiService
       .getFarmerProfile(this.farmerID)
       .subscribe((res: any) => {
         this.data = res;
         this.data.profile !== undefined ?  this.hasProfile = !this.hasProfile : this.hasProfile = this.hasProfile;
-        this.router.navigate(['farmer']);
       }, (err: any) => {
         console.log(err);
         alert(err);

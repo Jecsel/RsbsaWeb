@@ -56,47 +56,69 @@
                     <button mat-raised-button color="accent" (click)="addFarmer()"><mat-icon>add</mat-icon>Add Farmers</button>
                 </mat-card-actions>
             </div>
-            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-                <ng-container matColumnDef="refNo">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Ref No. </th>
-                  <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].id}} </td>
-                </ng-container>
-                <ng-container matColumnDef="lastName">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
-                  <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].last_name }} </td>
-                </ng-container>
-                <ng-container matColumnDef="firstName">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
-                  <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].first_name }} </td>
-                </ng-container>
-                <ng-container matColumnDef="municipality">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Municipality </th>
-                  <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].municipality }} </td>
-                </ng-container>
-                <ng-container matColumnDef="province">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Province </th>
-                    <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].province }} </td>
-                </ng-container>
-                <ng-container matColumnDef="lotNo">
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSources" matSort>
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="refNo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                  </ng-container>
+              
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+                  </ng-container>
+              
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+                  </ng-container>
+              
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="municipality">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> MUNICIPALITY </th>
+                    <td mat-cell *matCellDef="let element"> {{element.municipality}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="province">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> MUNICIPALITY </th>
+                    <td mat-cell *matCellDef="let element"> {{element.province}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="lotNo">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Lot No </th>
-                    <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].lot_no }} </td>
-                </ng-container>
-                <ng-container matColumnDef="farmAddress">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Farm Address </th>
-                    <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].farm_address }} </td>
-                </ng-container>
-                <ng-container matColumnDef="tenStatus">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ten Status </th>
-                    <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].ten_status }} </td>
-                </ng-container>
-                <ng-container matColumnDef="noHas">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. Has. </th>
-                    <td mat-cell *matCellDef="let element; let i = index"> {{ element[i].total_farm_area }} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
-              <div class="well">
+                    <td mat-cell *matCellDef="let element"> {{element.lot_no}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="farmAddress">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+                    <td mat-cell *matCellDef="let element"> {{element.farm_address}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="tenStatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Tenant Stat </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ten_status}} </td>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="noHas">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. Has </th>
+                    <td mat-cell *matCellDef="let element"> {{element.total_farm_area}} </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+                <div class="well">
                 <div class="d-flex justify-content-start px-2">
                     <button mat-stroked-button color="accent" (click)="openDialog()"><mat-icon>filter_list</mat-icon>Filter</button>
                 </div>
